@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="<%= @ch.language %>">
+<head>
+  <meta charset="utf-8"/>
+  <title><%= @ch.title %></title>
+  <meta name="generator" content="Feedgen"/>
+  <meta name="keywords" content="<%= @ch.keywords %>"/>
+  <% unless @ch.copyright.blank? %>
+  <meta name="copyright" content="<%= @ch.copyright %>"/>
+  <% end %>
+  <link rel="canonical" href="<%= @ch.url %>"/>
+  <link rel="alternate" type="application/rss+xml" title="<%= @ch.title %> Podcast Feed" href="<%= @ch.url %>">
+</head>
+
+<body id="home">
+  <h1><%= @ch.title %></h1>
+  <% unless @ch.subtitle.blank? %>
+  <h2><%= @ch.subtitle %></h2>
+  <% end %>
+  
+  <% unless @ch.image_url.blank? %>
+  <img src="<%= image_url %>"/>
+  <% end %>
+  <p><%= @ch.description %></p>
+
+  <h1>Episodes</h1>
+  <% @ch.items.each{|item| %>
+    <div class="item" id="<%= item.uuid %>">
+      <h2><%= item.title %></h2>
+    <% unless item.subtitle.blank? %>
+      <h3><%= item.subtitle %></h3>
+    <% end %>
+      <img src="<%= item.image_url %>"/>
+      <p>Download: <a href="<%= item.url %>">MP3</a> (<%= humanize_time(item.duration) %>, <%= humanize_size(item.file_size) %>)</p>
+      <p>Published <%= item.pub_date.to_formatted_s(:rfc822) %></p>
+    <% unless item.keywords.blank? %>
+      <p><%= item.keywords %></p>
+    <% end %>
+    </div>
+  <% } %>
+</body>
+</html>

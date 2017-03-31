@@ -1,0 +1,8 @@
+<h1>Channels</h1>
+<% @channels.each do |channel| %>
+  <p>
+    <%= link_to channel, channel_path(channel, format: 'html') %>
+    &nbsp;|&nbsp;
+    <%= link_to "RSS", channel_path(channel, format: 'rss') %>
+  </p>
+<% end %>
