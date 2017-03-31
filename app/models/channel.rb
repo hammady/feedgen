@@ -9,10 +9,17 @@ class Channel < ApplicationRecord
 
   def publish
     # publish to S3
-    filename = "#{id}.rss"
     body = ChannelsController.render "show.rss", layout: false, assigns: {ch: self}
-    obj = S3_BUCKET.object(filename)
+    obj = S3_BUCKET.object(published_filename)
     obj.put(body: body)
+  end
+
+  def published_filename
+    "#{id}.rss"
+  end
+
+  def published_url
+    "https://#{ENV['CLOUDFRONT_DOMAIN']}/#{published_filename}"
   end
 
 end

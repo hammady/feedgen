@@ -12,7 +12,7 @@ ActiveAdmin.register Channel do
     channel = Channel.find params[:id]
     channel.publish
     redirect_to admin_channel_path(channel), notice:
-      "Channel published successfully"
+      "Channel published successfully to #{channel.published_url}"
   end
 
 end
