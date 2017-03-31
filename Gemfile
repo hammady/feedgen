@@ -55,3 +55,4 @@ end
 gem 'inherited_resources', '~> 1.7'
 gem 'devise'
 gem 'activeadmin', '=1.0.0.pre5'
+gem 'aws-sdk', '~> 2'
