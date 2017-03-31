@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'pg'
-gem 'unicorn'
+gem 'puma'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
