@@ -185,6 +185,8 @@ GEM
       ffi (>= 0.5.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    responsive_active_admin (0.0.5)
+      activeadmin
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -241,6 +243,7 @@ DEPENDENCIES
   pg
   puma
   rails (~> 5.0.2)
+  responsive_active_admin
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
