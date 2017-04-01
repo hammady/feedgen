@@ -45,7 +45,7 @@
       <enclosure url="<%= item.url %>" length="<%= item.file_size %>" type="audio/mp3"/>
       <link><%= item.url %></link>
       <guid isPermaLink="false"><%= item.uuid %></guid>
-      <pubDate><%= item.pub_date.to_formatted_s(:rfc822) %></pubDate>
+      <pubDate><%= item.pub_date.rfc2822 %></pubDate>
       <itunes:duration><%= item.duration %></itunes:duration>
     <% unless item.keywords.blank? %>
       <itunes:keywords><%= item.keywords %></itunes:keywords>
