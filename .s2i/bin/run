@@ -12,5 +12,5 @@ if [ ! -f Procfile ]; then
   exit 1
 fi
 
-which foreman || gem install foreman
-forman start $PROCTYPE=1
+which foreman &>/dev/null || gem install foreman
+foreman start $PROCTYPE=1
