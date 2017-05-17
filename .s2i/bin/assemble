@@ -1,5 +1,27 @@
 #!/bin/bash
-echo "Running $0"
+
+# select ruby version
+function rvm_use() {
+  . /usr/local/rvm/scripts/rvm
+  . $HOME/.rvm/scripts/rvm
+  rvm use $1
+  if [ $? -ne 0 ]; then
+    echo "WARNING: No rvm found or ruby not installed, using default ruby"
+  fi
+}
+
+if [ "$RUBY_VERSION" != "" ]; then
+  echo "Using ruby from RUBY_VERSION environment variable"
+  rvm_use $RUBY_VERSION
+elif [ -f Gemfile ]; then
+  echo "Using ruby from Gemfile"
+  line=`grep -e '^ruby ' Gemfile`
+  if [ $? -eq 0 ]; then
+    ruby_version=`echo $line | sed "s/ruby *'\(.*\)'/\1/"`
+    echo "Found ruby version: $ruby_version"
+    rvm_use $ruby_version
+  fi
+fi
 
 function rake_assets_precompile() {
   [[ "$DISABLE_ASSET_COMPILATION" == "true" ]] && return

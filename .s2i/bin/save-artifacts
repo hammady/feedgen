@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+pushd ${HOME} >/dev/null
+
+if [ -d ./bundle ]; then
+  tar cf - bundle/ruby 
+fi
+
+popd >/dev/null
+
