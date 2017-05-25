@@ -6,8 +6,8 @@ pushd ${HOME} >/dev/null
 # TODO
 
 # gems
-tar cf /tmp/build-artifacts.tar bundle/ruby 
-cat /tmp/build-artifacts.tar
+tar cf build-artifacts.tar bundle/ruby 
+cat build-artifacts.tar
 
 popd >/dev/null
 
