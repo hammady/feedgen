@@ -3,11 +3,10 @@
 pushd ${HOME} >/dev/null
 
 # ruby
-# TODO
+
 
 # gems
-tar cf build-artifacts.tar bundle/ruby 
-cat build-artifacts.tar
+tar cf - bundle/ruby .rvm
 
 popd >/dev/null
 
