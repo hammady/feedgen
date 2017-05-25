@@ -2,9 +2,12 @@
 
 pushd ${HOME} >/dev/null
 
-if [ -d ./bundle ]; then
-  tar cf - bundle/ruby 
-fi
+# ruby
+# TODO
+
+# gems
+tar cf /tmp/build-artifacts.tar bundle/ruby 
+cat /tmp/build-artifacts.tar
 
 popd >/dev/null
 
