@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:9.5
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=podcastgen_development
+  worker:
+    build: .
+    environment:
+      - DATABASE_URL=postgres://user:password@postgres:5432/podcastgen_development
+    volumes:
+      - .:/app
+    command: ./bin/delayed_job run 
+    depends_on:
+      - postgres
+  web:
+    image: podcastgen_worker
+    environment:
+      - DATABASE_URL=postgres://user:password@postgres:5432/podcastgen_development
+    ports:
+      - "5000:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
