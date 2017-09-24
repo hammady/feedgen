@@ -61,3 +61,6 @@ gem 'aws-sdk', '~> 2'
 gem 'responsive_active_admin'
 gem 'delayed_job_active_record'
 gem 'daemons'
+
+# Azure
+gem 'application_insights', '~> 0.5.3'
