@@ -14,6 +14,7 @@ ADD Gemfile.lock /app/Gemfile.lock
 
 ENV RAILS_ENV development
 ENV RACK_ENV development
+ENV PORT 8080
 
 RUN gem install bundler -v 1.15.1 && \
     bundle config --local without test && \
