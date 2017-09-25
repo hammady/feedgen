@@ -87,7 +87,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Azure application insights configuration
-  config.middleware.use ApplicationInsights::Rack::TrackRequest,
-    ENV['AZURE_APP_INSIGHTS_KEY'],
-    ENV['AZURE_APP_INSIGHTS_BUFFER_SIZE'].to_i
+  if ENV['AZURE_APP_INSIGHTS_KEY'].present?
+    config.middleware.use ApplicationInsights::Rack::TrackRequest,
+      ENV['AZURE_APP_INSIGHTS_KEY'],
+      (ENV['AZURE_APP_INSIGHTS_BUFFER_SIZE'] || '5').to_i
+  end
 end

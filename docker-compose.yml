@@ -10,8 +10,8 @@ services:
       - ./pgdata:/var/lib/postgresql/data
   worker:
     build: .
-    environment:
-      - DATABASE_URL=postgres://user:password@postgres:5432/podcastgen_development
+    env_file:
+      - .env
     volumes:
       - .:/app
     command: ./bin/delayed_job run 
@@ -19,8 +19,8 @@ services:
       - postgres
   web:
     image: podcastgen_worker
-    environment:
-      - DATABASE_URL=postgres://user:password@postgres:5432/podcastgen_development
+    env_file:
+      - .env
     ports:
       - "3000:8080"
     volumes:

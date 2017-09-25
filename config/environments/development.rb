@@ -53,4 +53,11 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Azure application insights configuration
+  if ENV['AZURE_APP_INSIGHTS_KEY'].present?
+    config.middleware.use ApplicationInsights::Rack::TrackRequest,
+      ENV['AZURE_APP_INSIGHTS_KEY'],
+      (ENV['AZURE_APP_INSIGHTS_BUFFER_SIZE'] || '5').to_i
+  end
 end

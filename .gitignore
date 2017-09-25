@@ -24,3 +24,5 @@
 /public/assets
 
 pgdata
+*.sublime-project
+*.sublime-workspace
