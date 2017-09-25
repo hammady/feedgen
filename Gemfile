@@ -63,4 +63,4 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 
 # Azure
-gem 'application_insights', '~> 0.5.3'
+gem 'application_insights', github: "Microsoft/ApplicationInsights-Ruby"

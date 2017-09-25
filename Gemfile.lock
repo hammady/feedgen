@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Microsoft/ApplicationInsights-Ruby.git
+  revision: 32b098548f1f0e76a3d546228c7f9eafb0aa97d5
+  specs:
+    application_insights (0.5.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,7 +58,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    application_insights (0.5.3)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
@@ -136,6 +141,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    libv8 (3.16.14.17)
     libv8 (3.16.14.17-x86_64-linux)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -248,7 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (= 1.0.0.pre5)
-  application_insights (~> 0.5.3)
+  application_insights!
   aws-sdk (~> 2)
   byebug
   daemons
