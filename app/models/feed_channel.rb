@@ -1,4 +1,6 @@
-class Channel < ApplicationRecord
+class FeedChannel < ApplicationRecord
+  self.table_name = 'channels'
+
   has_many :items
 
   validates_presence_of :title, :author, :description
@@ -9,7 +11,7 @@ class Channel < ApplicationRecord
 
   def publish
     # publish to S3
-    body = ChannelsController.render "show.rss", layout: false, assigns: {ch: self}
+    body = FeedChannelsController.render "show.rss", layout: false, assigns: {ch: self}
     obj = S3_BUCKET.object(published_filename)
     obj.put(body: body)
   end

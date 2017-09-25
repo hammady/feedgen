@@ -1,4 +1,4 @@
-module ChannelsHelper
+module FeedChannelsHelper
   # from http://stackoverflow.com/questions/4136248
   def humanize_time(secs)
     return "" if secs.nil?
