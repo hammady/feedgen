@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :channel
+  belongs_to :feed_channel, foreign_key: 'channel_id'
 
   validates_presence_of :title, :author, :url, :pub_date
 

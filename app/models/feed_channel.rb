@@ -1,7 +1,7 @@
 class FeedChannel < ApplicationRecord
   self.table_name = 'channels'
 
-  has_many :items
+  has_many :items, foreign_key: 'channel_id'
 
   validates_presence_of :title, :author, :description
 
